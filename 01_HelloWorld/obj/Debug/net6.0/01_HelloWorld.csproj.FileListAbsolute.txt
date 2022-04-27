@@ -1,0 +1,15 @@
+D:\mis_proyectos\curso_punto_net_6.0\01_HelloWorld\bin\Debug\net6.0\01_HelloWorld.exe
+D:\mis_proyectos\curso_punto_net_6.0\01_HelloWorld\bin\Debug\net6.0\01_HelloWorld.deps.json
+D:\mis_proyectos\curso_punto_net_6.0\01_HelloWorld\bin\Debug\net6.0\01_HelloWorld.runtimeconfig.json
+D:\mis_proyectos\curso_punto_net_6.0\01_HelloWorld\bin\Debug\net6.0\01_HelloWorld.dll
+D:\mis_proyectos\curso_punto_net_6.0\01_HelloWorld\bin\Debug\net6.0\01_HelloWorld.pdb
+D:\mis_proyectos\curso_punto_net_6.0\01_HelloWorld\obj\Debug\net6.0\01_HelloWorld.csproj.AssemblyReference.cache
+D:\mis_proyectos\curso_punto_net_6.0\01_HelloWorld\obj\Debug\net6.0\01_HelloWorld.GeneratedMSBuildEditorConfig.editorconfig
+D:\mis_proyectos\curso_punto_net_6.0\01_HelloWorld\obj\Debug\net6.0\01_HelloWorld.AssemblyInfoInputs.cache
+D:\mis_proyectos\curso_punto_net_6.0\01_HelloWorld\obj\Debug\net6.0\01_HelloWorld.AssemblyInfo.cs
+D:\mis_proyectos\curso_punto_net_6.0\01_HelloWorld\obj\Debug\net6.0\01_HelloWorld.csproj.CoreCompileInputs.cache
+D:\mis_proyectos\curso_punto_net_6.0\01_HelloWorld\obj\Debug\net6.0\01_HelloWorld.dll
+D:\mis_proyectos\curso_punto_net_6.0\01_HelloWorld\obj\Debug\net6.0\refint\01_HelloWorld.dll
+D:\mis_proyectos\curso_punto_net_6.0\01_HelloWorld\obj\Debug\net6.0\01_HelloWorld.pdb
+D:\mis_proyectos\curso_punto_net_6.0\01_HelloWorld\obj\Debug\net6.0\01_HelloWorld.genruntimeconfig.cache
+D:\mis_proyectos\curso_punto_net_6.0\01_HelloWorld\obj\Debug\net6.0\ref\01_HelloWorld.dll
