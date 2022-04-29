@@ -1,0 +1,15 @@
+D:\mis_proyectos\curso_punto_net_6.0\02_TiposDatos\bin\Debug\net6.0\02_TiposDatos.exe
+D:\mis_proyectos\curso_punto_net_6.0\02_TiposDatos\bin\Debug\net6.0\02_TiposDatos.deps.json
+D:\mis_proyectos\curso_punto_net_6.0\02_TiposDatos\bin\Debug\net6.0\02_TiposDatos.runtimeconfig.json
+D:\mis_proyectos\curso_punto_net_6.0\02_TiposDatos\bin\Debug\net6.0\02_TiposDatos.dll
+D:\mis_proyectos\curso_punto_net_6.0\02_TiposDatos\bin\Debug\net6.0\02_TiposDatos.pdb
+D:\mis_proyectos\curso_punto_net_6.0\02_TiposDatos\obj\Debug\net6.0\02_TiposDatos.csproj.AssemblyReference.cache
+D:\mis_proyectos\curso_punto_net_6.0\02_TiposDatos\obj\Debug\net6.0\02_TiposDatos.GeneratedMSBuildEditorConfig.editorconfig
+D:\mis_proyectos\curso_punto_net_6.0\02_TiposDatos\obj\Debug\net6.0\02_TiposDatos.AssemblyInfoInputs.cache
+D:\mis_proyectos\curso_punto_net_6.0\02_TiposDatos\obj\Debug\net6.0\02_TiposDatos.AssemblyInfo.cs
+D:\mis_proyectos\curso_punto_net_6.0\02_TiposDatos\obj\Debug\net6.0\02_TiposDatos.csproj.CoreCompileInputs.cache
+D:\mis_proyectos\curso_punto_net_6.0\02_TiposDatos\obj\Debug\net6.0\02_TiposDatos.dll
+D:\mis_proyectos\curso_punto_net_6.0\02_TiposDatos\obj\Debug\net6.0\refint\02_TiposDatos.dll
+D:\mis_proyectos\curso_punto_net_6.0\02_TiposDatos\obj\Debug\net6.0\02_TiposDatos.pdb
+D:\mis_proyectos\curso_punto_net_6.0\02_TiposDatos\obj\Debug\net6.0\02_TiposDatos.genruntimeconfig.cache
+D:\mis_proyectos\curso_punto_net_6.0\02_TiposDatos\obj\Debug\net6.0\ref\02_TiposDatos.dll
