@@ -83,3 +83,49 @@ switch (operacion) {
 }
 
 Console.WriteLine("El resultado es: " + resultado);
+
+
+/****** Ejemplo de if else anidados ******/
+
+int numero_1, numero_2, numero_3; //Declaramos las variables
+
+Console.Write("Ingrese numero 1: ");
+numero_1 = int.Parse(Console.ReadLine()); //ingresamos el primer numero
+
+Console.Write("Ingrese numero 2: ");
+numero_2 = int.Parse(Console.ReadLine()); //Ingresamos el segundo numero
+
+Console.Write("Ingrese numero 3: ");
+numero_3 = int.Parse(Console.ReadLine()); //Ingresamos el tercer numero
+
+if (numero_1 > numero_2) { //numero_1 es mayor
+    //Instrucciones
+    if (numero_1 > numero_3) { //numero_1 es mayor
+        //Instrucciones
+        Console.WriteLine("El primer numero es el mayor: " + numero_1);
+    } else { //numero3 es mayor    
+        //Instrucciones
+        Console.WriteLine("El tercer numero es el mayor: " + numero_3);
+    }
+} else { //numero2 es mayor
+    //Instrucciones
+    if (numero_2 > numero_3) { //numero2 es mayor   
+        //Instrucciones
+        Console.WriteLine("El segundo numero es el mayor: " + numero_2);
+    } else {
+        //Instrucciones
+        Console.WriteLine("El tercer numero es el mayor: " + numero_3);
+    }
+}
+
+
+Console.WriteLine("Desea continuar? (S/N)");
+var texto = Console.ReadLine();
+
+if (texto.ToUpper() == "S") {
+    Console.WriteLine("Usted ingresó que SI");
+} else if (texto.ToUpper() == "N") {
+    Console.WriteLine("Usted ingresó que NO");
+} else {
+    Console.WriteLine("Usted no entendió nada");
+}
