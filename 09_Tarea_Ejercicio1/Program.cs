@@ -14,6 +14,8 @@ Tampoco se debe crear un vector nuevo o auxiliar para realizar el ejercicio.
 6) Mostrar el vector nuevamente.
 */
 
+Console.Clear();
+
 Console.WriteLine("Ingrese la longitud del vector: ");
 
 int longitud = int.Parse(Console.ReadLine());
@@ -53,3 +55,5 @@ foreach (int i in vector) {
     contador++;
     Console.WriteLine(contador + ": " + i + " ");
 }
+
+Console.WriteLine("\nPrograma finalizado correctamente");
