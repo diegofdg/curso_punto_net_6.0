@@ -1,100 +1,130 @@
-﻿/*
-Clase 9: Tarea - Ejercicio 2
-Generar un programa que cree un cartón de bingo aleatorio y lo muestre por pantalla:
-1) Cartón de 3 filas por 9 columnas
-2) El cartón debe tener 15 números y 12 espacios en blanco
-3) Cada fila debe tener 5 números
-4) Cada columna debe tener 1 o 2 números
-5) Ningún número puede repetirse
-6) La primer columna contiene los números del 1 al 9, la segunda del 10 al 19, 
-la tercera del 20 al 29, así sucesivamente hasta la última columna la cual 
-contiene del 80 al 90
-7) Mostrar el carton por pantalla
-*/
+﻿Console.Clear();
 
-Console.Clear();
+var genRandom = new Random(DateTime.Now.Millisecond);
 
-int[,] carton = new int[3, 9];
+var carton = new int[3, 9];
 
-int cantidadFilas = carton.GetUpperBound(0) + 1;
+// Generamos 4 cartones
+for (int i = 0; i < 4; i++) {
+    // Generamos los números para el cartón
+    for (int c = 0; c < 9; c++) {
+        for (int f = 0; f < 3; f++) {
+            int nuevoNumero = 0;
+            bool encontreUnoNuevo = false;
+            while (!encontreUnoNuevo) {
+                if (c == 0) {  // columna 1
+                    nuevoNumero = genRandom.Next(1, 10);  // Genera números del 1 al 9
+                } else if (c == 8) {  // columa 9
+                    nuevoNumero = genRandom.Next(80, 91); // Genera números del 80 al 90
+                } else { // todas las demás columnas
+                    nuevoNumero = genRandom.Next(c * 10, c * 10 + 10);  // Genera números del 10 al 19, del 20 al 29, etc
+                }
 
-int cantidadColumnas = carton.GetUpperBound(1) + 1;
-
-for (int columna = 0; columna < cantidadColumnas; columna++) {
-    Random aleatorio = new Random();
-    int cantidadPorFila = aleatorio.Next(1, 3);
-    int[] auxiliar = new int[cantidadPorFila];
-    int contador = 0;
-    int minimo = 0;
-    int maximo = 0;
-
-    switch (columna) {
-        case 0:
-            minimo = 1;
-            maximo = 9;
-            break;
-        case 1:
-            minimo = 10;
-            maximo = 19;
-            break;
-        case 2:
-            minimo = 20;
-            maximo = 29;
-            break;
-        case 3:
-            minimo = 30;
-            maximo = 39;
-            break;
-        case 4:
-            minimo = 40;
-            maximo = 49;
-            break;
-        case 5:
-            minimo = 50;
-            maximo = 59;
-            break;
-        case 6:
-            minimo = 60;
-            maximo = 69;
-            break;
-        case 7:
-            minimo = 70;
-            maximo = 79;
-            break;
-        case 8:
-            minimo = 80;
-            maximo = 90;
-            break;
+                // Buscamos si el nuevo número existe en la columna
+                encontreUnoNuevo = true;
+                for (int f2 = 0; f2 < 3; f2++) {
+                    if (carton[f2, c] == nuevoNumero) {
+                        encontreUnoNuevo = false;
+                        break;
+                    }
+                }
+                // Si salio del bucle y no encontro repetidos,
+                // encontreUnoNuevo = true y sale del bucle while                
+            }
+            carton[f, c] = nuevoNumero;
+        }
     }
 
-    while (contador < cantidadPorFila) {
-        int numeroAleatorio = aleatorio.Next(minimo, maximo);
-        bool repetido = false;
-        for (int i = 0; i < cantidadPorFila; i++) {
-            if (auxiliar[i] == numeroAleatorio) {
-                repetido = true;
-                break;
+    // Esto no estaba pedido en el ejercicio,
+    // pero ahora ordenamos las columnas
+    for (int c = 0; c < 9; c++) {
+        for (int f = 0; f < 3; f++) {
+            for (int k = f + 1; k < 3; k++) {
+                if (carton[f, c] > carton[k, c]) {
+                    int aux = carton[f, c];
+                    carton[f, c] = carton[k, c];
+                    carton[k, c] = aux;
+                }
+            }
+        }
+    }
+
+    var borrados = 0;
+    while (borrados < 12) {
+        var filaABorrar = genRandom.Next(0, 3);
+        var columnaABorrar = genRandom.Next(0, 9);
+
+        if (carton[filaABorrar, columnaABorrar] == 0) {
+            continue;
+        }
+
+        // contamos cuantos ceros hay en esta fila
+        var cerosEnFila = 0;
+        for (int c = 0; c < 9; c++) {
+            if (carton[filaABorrar, c] == 0) {
+                cerosEnFila++;
             }
         }
 
-        if (!repetido) {
-            auxiliar[contador] = numeroAleatorio;
-            carton[contador, columna] = numeroAleatorio;
-            contador++;
+        // contamos cuantos ceros hay en columna
+        var cerosEnColumna = 0;
+        for (int f = 0; f < 3; f++) {
+            if (carton[f, columnaABorrar] == 0) {
+                cerosEnColumna++;
+            }
         }
+
+        // Contamos cuantos items tenemos en cada columna
+        var itemsPorColumna = new int[9];
+        for (int c = 0; c < 9; c++) {
+            for (int f = 0; f < 3; f++) {
+                if (carton[f, c] != 0) {
+                    itemsPorColumna[c]++;
+                }
+            }
+        }
+
+        // Contamos cuantas columnas hay con un solo número
+        var columnasConUnSoloNumero = 0;
+        for (int c = 0; c < 9; c++) {
+            if (itemsPorColumna[c] == 1) {
+                columnasConUnSoloNumero++;
+            }
+        }
+
+        // Si ya hay 4 ceros en la fila o si ya hay 2 ceros en la columna,
+        // no hago nada
+        if (cerosEnFila == 4 || cerosEnColumna == 2) {
+            continue;
+        }
+
+        // Si hay 3 columnas con 1 solo número, a partir de ahora debo borrar solo las columnas
+        // que tienen 3 items
+        if (columnasConUnSoloNumero == 3 && itemsPorColumna[columnaABorrar] != 3) {
+            continue;
+        }
+
+        // Si no entro por las opciones anteriores, borramos el número
+        carton[filaABorrar, columnaABorrar] = 0;
+        borrados++;
     }
-}
 
-for (int columna = 0; columna < cantidadColumnas; columna++) {
-    Console.WriteLine();
+    // Ahora sí, mostramos el carton
+    Console.WriteLine("----------------------------------------------");
+    for (int f = 0; f < 3; f++) {
+        for (int c = 0; c < 9; c++) {
+            if (c == 0) {
+                Console.Write("|");
+            }
 
-    Console.WriteLine($"Columna N°: {columna + 1}: ");
-
-    for (int fila = 0; fila < cantidadFilas; fila++) {
-        Console.Write($"Valor número {fila + 1}: ");
-
-        Console.WriteLine(carton[fila, columna]);
+            if (carton[f, c] == 0) {
+                Console.Write("    |");   // Si es cero mostramos un espacio            
+            } else {
+                Console.Write($" {carton[f, c]:00} |");
+            }                
+        }
+        Console.WriteLine("");
     }
+    Console.WriteLine("----------------------------------------------");
+    Console.WriteLine("");
 }
-
-Console.WriteLine("\nPrograma finalizado correctamente");
