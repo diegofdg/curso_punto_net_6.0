@@ -4,10 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _13_Tarea
-{
-    internal class Billetera
-    {
+namespace _13_Tarea {
+    public class Billetera : IBilletera {
         public int BilletesDe10 { get; set; }
         public int BilletesDe20 { get; set; }
         public int BilletesDe50 { get; set; }
@@ -25,10 +23,11 @@ namespace _13_Tarea
                 BilletesDe200 * 200m +
                 BilletesDe500 * 500m +
                 BilletesDe1000 * 1000m;
-            return total;            
+
+            return total;
         }
 
-        public Billetera Combinar(Billetera b) {
+        public IBilletera Combinar(IBilletera b) {
             var nueva = new Billetera();
 
             // Combinamos
@@ -49,7 +48,7 @@ namespace _13_Tarea
             BilletesDe500 = 0;
             BilletesDe1000 = 0;
 
-            // Vaciamos segunda billetera
+            // Vaciamos la segunda billetera
             b.BilletesDe10 = 0;
             b.BilletesDe20 = 0;
             b.BilletesDe50 = 0;
