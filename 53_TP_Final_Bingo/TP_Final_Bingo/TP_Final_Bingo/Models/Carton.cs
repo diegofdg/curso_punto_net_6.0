@@ -2,6 +2,6 @@
 {
     public class Carton
     {
-        public List<int> Numeros { get; set; }
+        public List<int> Numeros { get; set; } = new List<int>();
     }
 }
