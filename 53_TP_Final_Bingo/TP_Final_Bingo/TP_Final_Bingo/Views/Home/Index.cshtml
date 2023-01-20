@@ -1,4 +1,5 @@
-﻿@{
+﻿@model List<int>
+@{
     ViewData["Title"] = "TP Final Bingo";
 }
 
@@ -9,37 +10,46 @@
                 <caption class="caption-top fw-bold">Cartón 1</caption>
                 <tbody>
                     <tr>
-                        <td>03</td>
-                        <td class="bg-info"></td>
-                        <td>22</td>
-                        <td class="bg-info"></td>
-                        <td>41</td>
-                        <td>52</td>
-                        <td class="bg-info"></td>
-                        <td class="bg-info"></td>
-                        <td>89</td>
+                        @for (int i = 0; i < 9; i++)
+                        {
+                            var item = Model[i];
+                            if (item == 0)
+                            {
+                                <td class="bg-info" style=" width:10%;"></td>
+                            }
+                            else
+                            {
+                                <td>@item</td>
+                            }
+                        }
                     </tr>
                     <tr>
-                        <td>07</td>
-                        <td>12</td>
-                        <td class="bg-info"></td>
-                        <td>38</td>
-                        <td class="bg-info"></td>
-                        <td>57</td>
-                        <td class="bg-info"></td>
-                        <td>73</td>
-                        <td class="bg-info"></td>
+                        @for (int i = 9; i < 18; i++)
+                        {
+                            var item = Model[i];
+                            if (item == 0)
+                            {
+                                <td class="bg-info" style=" width:10%;"></td>
+                            }
+                            else
+                            {
+                            <td>@item</td>
+                            }
+                        }
                     </tr>
                     <tr>
-                        <td class="bg-info"></td>
-                        <td>18</td>
-                        <td>25</td>
-                        <td class="bg-info"></td>
-                        <td>44</td>
-                        <td class="bg-info"></td>
-                        <td>64</td>
-                        <td>76</td>
-                        <td class="bg-info"></td>
+                        @for (int i = 18; i < 27; i++)
+                        {
+                            var item = Model[i];
+                            if (item == 0)
+                            {
+                                <td class="bg-info" style=" width:10%;"></td>
+                            }
+                            else
+                            {
+                                <td>@item</td>
+                            }
+                        }
                     </tr>
                 </tbody>
             </table>
@@ -49,37 +59,46 @@
                 <caption class="caption-top fw-bold">Cartón 2</caption>
                 <tbody>
                     <tr>
-                        <td>03</td>
-                        <td class="bg-success"></td>
-                        <td>22</td>
-                        <td class="bg-success"></td>
-                        <td>41</td>
-                        <td>52</td>
-                        <td class="bg-success"></td>
-                        <td class="bg-success"></td>
-                        <td>89</td>
+                        @for (int i = 27; i < 36; i++)
+                        {
+                            var item = Model[i];
+                            if (item == 0)
+                            {
+                                <td class="bg-success" style=" width:10%;"></td>
+                            }
+                            else
+                            {
+                                <td>@item</td>
+                            }
+                        }
                     </tr>
                     <tr>
-                        <td>07</td>
-                        <td>12</td>
-                        <td class="bg-success"></td>
-                        <td>38</td>
-                        <td class="bg-success"></td>
-                        <td>57</td>
-                        <td class="bg-success"></td>
-                        <td>73</td>
-                        <td class="bg-success"></td>
+                        @for (int i = 36; i < 45; i++)
+                        {
+                            var item = Model[i];
+                            if (item == 0)
+                            {
+                                <td class="bg-success" style=" width:10%;"></td>
+                            }
+                            else
+                            {
+                                <td>@item</td>
+                            }
+                        }
                     </tr>
                     <tr>
-                        <td class="bg-success"></td>
-                        <td>18</td>
-                        <td>25</td>
-                        <td class="bg-success"></td>
-                        <td>44</td>
-                        <td class="bg-success"></td>
-                        <td>64</td>
-                        <td>76</td>
-                        <td class="bg-success"></td>
+                        @for (int i = 45; i < 54; i++)
+                        {
+                            var item = Model[i];
+                            if (item == 0)
+                            {
+                                <td class="bg-success" style=" width:10%;"></td>
+                            }
+                            else
+                            {
+                                <td>@item</td>
+                            }
+                        }
                     </tr>
                 </tbody>
             </table>
@@ -91,37 +110,46 @@
                 <caption class="caption-top fw-bold">Cartón 3</caption>
                 <tbody>
                     <tr>
-                        <td>03</td>
-                        <td class="bg-danger"></td>
-                        <td>22</td>
-                        <td class="bg-danger"></td>
-                        <td>41</td>
-                        <td>52</td>
-                        <td class="bg-danger"></td>
-                        <td class="bg-danger"></td>
-                        <td>89</td>
+                        @for (int i = 54; i < 63; i++)
+                        {
+                            var item = Model[i];
+                            if (item == 0)
+                            {
+                                <td class="bg-danger" style=" width:10%;"></td>
+                            }
+                            else
+                            {
+                            <td>@item</td>
+                            }
+                        }
                     </tr>
                     <tr>
-                        <td>07</td>
-                        <td>12</td>
-                        <td class="bg-danger"></td>
-                        <td>38</td>
-                        <td class="bg-danger"></td>
-                        <td>57</td>
-                        <td class="bg-danger"></td>
-                        <td>73</td>
-                        <td class="bg-danger"></td>
+                        @for (int i = 63; i < 72; i++)
+                        {
+                            var item = Model[i];
+                            if (item == 0)
+                            {
+                                <td class="bg-danger" style=" width:10%;"></td>
+                            }
+                            else
+                            {
+                            <td>@item</td>
+                            }
+                        }
                     </tr>
                     <tr>
-                        <td class="bg-danger"></td>
-                        <td>18</td>
-                        <td>25</td>
-                        <td class="bg-danger"></td>
-                        <td>44</td>
-                        <td class="bg-danger"></td>
-                        <td>64</td>
-                        <td>76</td>
-                        <td class="bg-danger"></td>
+                        @for (int i = 72; i < 81; i++)
+                        {
+                            var item = Model[i];
+                            if (item == 0)
+                            {
+                                <td class="bg-danger" style=" width:10%;"></td>
+                            }
+                            else
+                            {
+                            <td>@item</td>
+                            }
+                        }
                     </tr>
                 </tbody>
             </table>
@@ -131,37 +159,46 @@
                 <caption class="caption-top fw-bold">Cartón 4</caption>
                 <tbody>
                     <tr>
-                        <td>03</td>
-                        <td class="bg-warning"></td>
-                        <td>22</td>
-                        <td class="bg-warning"></td>
-                        <td>41</td>
-                        <td>52</td>
-                        <td class="bg-warning"></td>
-                        <td class="bg-warning"></td>
-                        <td>89</td>
+                        @for (int i = 81; i < 90; i++)
+                        {
+                            var item = Model[i];
+                            if (item == 0)
+                            {
+                                <td class="bg-warning" style=" width:10%;"></td>
+                            }
+                            else
+                            {
+                            <td>@item</td>
+                            }
+                        }
                     </tr>
                     <tr>
-                        <td>07</td>
-                        <td>12</td>
-                        <td class="bg-warning"></td>
-                        <td>38</td>
-                        <td class="bg-warning"></td>
-                        <td>57</td>
-                        <td class="bg-warning"></td>
-                        <td>73</td>
-                        <td class="bg-warning"></td>
+                        @for (int i = 90; i < 99; i++)
+                        {
+                            var item = Model[i];
+                            if (item == 0)
+                            {
+                                <td class="bg-warning" style=" width:10%;"></td>
+                            }
+                            else
+                            {
+                            <td>@item</td>
+                            }
+                        }
                     </tr>
                     <tr>
-                        <td class="bg-warning"></td>
-                        <td>18</td>
-                        <td>25</td>
-                        <td class="bg-warning"></td>
-                        <td>44</td>
-                        <td class="bg-warning"></td>
-                        <td>64</td>
-                        <td>76</td>
-                        <td class="bg-warning"></td>
+                        @for (int i = 99; i < 108; i++)
+                        {
+                            var item = Model[i];
+                            if (item == 0)
+                            {
+                                <td class="bg-warning" style=" width:10%;"></td>
+                            }
+                            else
+                            {
+                            <td>@item</td>
+                            }
+                        }
                     </tr>
                 </tbody>
             </table>

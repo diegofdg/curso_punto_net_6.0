@@ -1,7 +1,12 @@
+using TP_Final_Bingo.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+// Inyección de las dependencias
+builder.Services.AddScoped<ICartonService, CartonService>();
 
 var app = builder.Build();
 
