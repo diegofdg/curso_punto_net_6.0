@@ -10,12 +10,5 @@ namespace TP_Final_Bingo.Services
             var carton = logica.CrearCartones();
             return carton;
         }
-
-        public int LanzarBolilla()
-        {
-            var logica = new CartonLogica();
-            var bolilla = logica.LanzarBolilla();
-            return bolilla;
-        }
     }
 }

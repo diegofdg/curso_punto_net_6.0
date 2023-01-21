@@ -16,11 +16,11 @@
                             var item = Model[i];
                             if (item == 0)
                             {
-                                <td class="bg-info" style=" width:10%;"></td>
+                                <td class="bg-info" style=" width:10%;" data-id=@i></td>
                             }
                             else
                             {
-                                <td>@item</td>
+                                <td data-id=@i>@item</td>
                             }
                         }
                     </tr>
@@ -30,11 +30,11 @@
                             var item = Model[i];
                             if (item == 0)
                             {
-                                <td class="bg-info" style=" width:10%;"></td>
+                                <td class="bg-info" style=" width:10%;" data-id=@i></td>
                             }
                             else
                             {
-                            <td>@item</td>
+                                <td data-id=@i>@item</td>
                             }
                         }
                     </tr>
@@ -44,11 +44,11 @@
                             var item = Model[i];
                             if (item == 0)
                             {
-                                <td class="bg-info" style=" width:10%;"></td>
+                                <td class="bg-info" style=" width:10%;" data-id=@i></td>
                             }
                             else
                             {
-                                <td>@item</td>
+                                <td data-id=@i>@item</td>
                             }
                         }
                     </tr>
@@ -65,11 +65,11 @@
                             var item = Model[i];
                             if (item == 0)
                             {
-                                <td class="bg-success" style=" width:10%;"></td>
+                                <td class="bg-success" style=" width:10%;" data-id=@i></td>
                             }
                             else
                             {
-                                <td>@item</td>
+                                <td data-id=@i>@item</td>
                             }
                         }
                     </tr>
@@ -79,11 +79,11 @@
                             var item = Model[i];
                             if (item == 0)
                             {
-                                <td class="bg-success" style=" width:10%;"></td>
+                                <td class="bg-success" style=" width:10%;" data-id=@i></td>
                             }
                             else
                             {
-                                <td>@item</td>
+                                <td data-id=@i>@item</td>
                             }
                         }
                     </tr>
@@ -93,11 +93,11 @@
                             var item = Model[i];
                             if (item == 0)
                             {
-                                <td class="bg-success" style=" width:10%;"></td>
+                                <td class="bg-success" style=" width:10%;" data-id=@i></td>
                             }
                             else
                             {
-                                <td>@item</td>
+                                <td data-id=@i>@item</td>
                             }
                         }
                     </tr>
@@ -116,11 +116,11 @@
                             var item = Model[i];
                             if (item == 0)
                             {
-                                <td class="bg-danger" style=" width:10%;"></td>
+                                <td class="bg-danger" style=" width:10%;" data-id=@i></td>
                             }
                             else
                             {
-                            <td>@item</td>
+                                <td data-id=@i>@item</td>
                             }
                         }
                     </tr>
@@ -130,11 +130,11 @@
                             var item = Model[i];
                             if (item == 0)
                             {
-                                <td class="bg-danger" style=" width:10%;"></td>
+                                <td class="bg-danger" style=" width:10%;" data-id=@i></td>
                             }
                             else
                             {
-                            <td>@item</td>
+                                <td data-id=@i>@item</td>
                             }
                         }
                     </tr>
@@ -144,11 +144,11 @@
                             var item = Model[i];
                             if (item == 0)
                             {
-                                <td class="bg-danger" style=" width:10%;"></td>
+                                <td class="bg-danger" style=" width:10%;" data-id=@i></td>
                             }
                             else
                             {
-                            <td>@item</td>
+                                <td data-id=@i>@item</td>
                             }
                         }
                     </tr>
@@ -165,11 +165,11 @@
                             var item = Model[i];
                             if (item == 0)
                             {
-                                <td class="bg-warning" style=" width:10%;"></td>
+                                <td class="bg-warning" style=" width:10%;" data-id=@i></td>
                             }
                             else
                             {
-                            <td>@item</td>
+                                <td data-id=@i>@item</td>
                             }
                         }
                     </tr>
@@ -179,11 +179,11 @@
                             var item = Model[i];
                             if (item == 0)
                             {
-                                <td class="bg-warning" style=" width:10%;"></td>
+                                <td class="bg-warning" style=" width:10%;" data-id=@i></td>
                             }
                             else
                             {
-                            <td>@item</td>
+                                <td data-id=@i>@item</td>
                             }
                         }
                     </tr>
@@ -193,11 +193,11 @@
                             var item = Model[i];
                             if (item == 0)
                             {
-                                <td class="bg-warning" style=" width:10%;"></td>
+                                <td class="bg-warning" style=" width:10%;" data-id=@i></td>
                             }
                             else
                             {
-                            <td>@item</td>
+                                <td data-id=@i>@item</td>
                             }
                         }
                     </tr>
@@ -207,19 +207,14 @@
     </div>
 </div>
 
-@using (Html.BeginForm("HandleClickButton", "Home"))
-{
-    <form>
-        <div class="container">
-            <button type="submit" class="btn btn-primary mt-2 mb-2 fs-4">Lanzar Bolilla</button>
-            <div class="row">
-                <div class="col-md mt-2">
-                    <p class="fs-5 fw-bold">Bolilla: <span class="fw-normal">(Número del 1 al 90)</span></p>
-                </div>
-                <div class="col-md mt-2">
-                    <p class="fs-5 fw-bold">Cartón Ganador: <span class="fw-normal">(Número del 1 a 4)</span></p>
-                </div>
-            </div>
+<div class="container">
+    <button type="button" id="btn-lanzar-bolilla" class="btn btn-primary mt-2 mb-2 fs-4">Lanzar Bolilla</button>
+    <div class="row">
+        <div class="col-md mt-2">
+            <p class="fs-5 fw-bold">Bolilla: <span id="ultima-bolilla" class="fw-normal">(Número del 1 al 90)</span></p>
         </div>
-    </form>
-}
+        <div class="col-md mt-2">
+            <p class="fs-5 fw-bold">Cartón Ganador: <span id="carton-ganador" class="fw-normal">(Número del 1 a 4)</span></p>
+        </div>
+    </div>
+</div>

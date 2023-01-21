@@ -3,6 +3,5 @@
     public interface ICartonService
     {
         List<int> CrearCartones();
-        int LanzarBolilla();
     }
 }

@@ -179,21 +179,5 @@ namespace TP_Final_Bingo.Controllers
 
             return cartonEnLista;
         }
-
-        public int GenerarBolillaAleatoria()
-        {
-            int min = 1;
-            int max = 90;
-
-            Random rnd = new Random();
-            return rnd.Next(min, max + 1);
-        }
-
-        public int LanzarBolilla()
-        {
-            var bolilla = GenerarBolillaAleatoria();
-
-            return bolilla;
-        }
     }
 }

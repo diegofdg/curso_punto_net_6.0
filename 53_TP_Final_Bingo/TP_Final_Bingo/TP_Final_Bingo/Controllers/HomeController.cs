@@ -12,7 +12,6 @@ namespace TP_Final_Bingo.Controllers
         private readonly ILogger<HomeController> _logger;
         private readonly ICartonService _cartonService;
         static List<int> carton = new List<int>();
-        static List<int> bombo = new List<int>();
 
         public HomeController(ILogger<HomeController> logger, ICartonService cartonService)
         {
@@ -30,26 +29,6 @@ namespace TP_Final_Bingo.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
-
-        public ActionResult HandleClickButton() 
-        {
-            // Prueba de consulta a la base de datos
-            //var ctx = new BingoContext();
-            //var historial = ctx.HistorialBolilleros.Select(selector => new { Id = selector.Id, Fecha = selector.FechaHora });
-            //foreach (var item in historial)
-            //{
-            //    Console.WriteLine($"{item.Id} - {item.Fecha}");
-            //}
-
-            bombo.Add(_cartonService.LanzarBolilla());
-
-
-            foreach (var item in bombo) {
-                Console.WriteLine(item);
-            }
-
-            return View("Index", carton);
         }
     }
 }
