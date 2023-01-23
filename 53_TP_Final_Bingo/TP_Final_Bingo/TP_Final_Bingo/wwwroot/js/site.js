@@ -13,12 +13,12 @@ let ganadores = [];
 span_carton_ganador.textContent = "";
 btn_lanzar_bolilla.addEventListener("click", lanzarBolilla, true);
 
-function lanzarBolilla() {
+async function lanzarBolilla() {
     const numero = generarNumero();
 
     revisarCartones(numero, cartones);
 
-    guardarNumero(numero);
+    await guardarNumero(numero);
 
     if (revisarGanadores()) {
         btn_lanzar_bolilla.removeEventListener("click", lanzarBolilla, true);
@@ -129,9 +129,12 @@ function guardarNumero(numero) {
         request.onreadystatechange = function () {
             if (request.readyState == 4 && request.status == 200) {
                 var response = JSON.parse(request.responseText);
-                alert("Number: " + response.numero + ".\nCurrent Date and Time: " + response.fechaHora);
+                console.log(response);
+                if (response !== 'ok') {
+                    alert(response);
+                }                
             }
         };
-        request.send(JSON.stringify(historialBolillero));
+        request.send(JSON.stringify(historialBolillero));        
     }
 }

@@ -3,6 +3,7 @@ using Microsoft.Extensions.Configuration;
 using System.Diagnostics;
 using TP_Final_Bingo.Context;
 using TP_Final_Bingo.Models;
+using TP_Final_Bingo.Rules;
 using TP_Final_Bingo.Services;
 
 namespace TP_Final_Bingo.Controllers
@@ -29,7 +30,15 @@ namespace TP_Final_Bingo.Controllers
         public JsonResult HistorialBolillero([FromBody] HistorialBolillero historialBolillero)
         {
             historialBolillero.FechaHora = DateTime.Now;
-            return Json(historialBolillero);
+            var respuesta = _cartonService.GuardarBolilla(historialBolillero);
+            if(respuesta == "ok")
+            {
+                return Json("ok");
+            }
+            else
+            {
+                return Json(respuesta);
+            }            
         }
         
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
