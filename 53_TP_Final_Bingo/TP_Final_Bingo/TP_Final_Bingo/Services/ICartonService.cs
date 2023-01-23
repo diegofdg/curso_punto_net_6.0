@@ -6,5 +6,7 @@ namespace TP_Final_Bingo.Services
     {
         List<int> CrearCartones();
         String GuardarBolilla(HistorialBolillero historialBolillero);
+
+        String GuardarCartones(HistorialCartone historialCartones);
     }
 }

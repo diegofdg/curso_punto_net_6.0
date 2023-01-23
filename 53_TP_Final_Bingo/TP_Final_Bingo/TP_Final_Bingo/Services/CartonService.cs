@@ -34,5 +34,30 @@ namespace TP_Final_Bingo.Services
                 return respuesta;
             }            
         }
+
+        public string GuardarCartones(HistorialCartone historialCartones)
+        {
+            var ctx = new BingoContext();
+            var cartones = new HistorialCartone
+            {
+                FechaHora = historialCartones.FechaHora,
+                Carton1 = historialCartones.Carton1,
+                Carton2 = historialCartones.Carton2,
+                Carton3 = historialCartones.Carton3,
+                Carton4 = historialCartones.Carton4,
+            };
+
+            ctx.Add(cartones);
+            try
+            {
+                var respuesta = ctx.SaveChanges();
+                return "ok";
+            }
+            catch (Exception ex)
+            {
+                var respuesta = ex.Message;
+                return respuesta;
+            }
+        }
     }
 }

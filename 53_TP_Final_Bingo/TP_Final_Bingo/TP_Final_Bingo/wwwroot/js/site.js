@@ -8,7 +8,8 @@ let carton2 = guardarCarton(27, 54);
 let carton3 = guardarCarton(54, 81);
 let carton4 = guardarCarton(81, 108);
 let cartones = [...carton1, ...carton2, ...carton3, ...carton4];
-let ganadores = [];
+let ganadores = [0, 0, 0, 0];
+let finDelJuego = false;
 
 span_carton_ganador.textContent = "";
 btn_lanzar_bolilla.addEventListener("click", lanzarBolilla, true);
@@ -69,26 +70,31 @@ function revisarCartones(numero, carton) {
 
 function revisarGanadores() {
     if (carton1.length == 12) {
-        ganadores.push("1");
+        ganadores[0] = 1;
+        finDelJuego = true;
     }
 
     if (carton2.length == 12) {
-        ganadores.push("2");
+        ganadores[1] = 2;
+        finDelJuego = true;
     }
 
     if (carton3.length == 12) {
-        ganadores.push("3");
+        ganadores[2] = 3;
+        finDelJuego = true;
     }
 
     if (carton4.length == 12) {
-        ganadores.push("4");
+        ganadores[3] = 4;
+        finDelJuego = true;
     }
 
-    if (ganadores.length > 0) {
-        span_carton_ganador.textContent = ganadores.toString();
-        return true;
+    if (finDelJuego) {
+        let resultadoFinal = ganadores.filter(numero => numero > 0);
+        span_carton_ganador.textContent = resultadoFinal.toString();
+        return finDelJuego;
     } else {
-        return false;
+        return finDelJuego;
     }
 };
 
@@ -107,6 +113,35 @@ function guardarCarton(desde, hasta) {
 
 function guardarDatosEnServidor() {
     console.log("Enviando los datos al servidor");
+    let historialCartones = {};    
+    historialCartones.carton1 = ganadores[0];
+    historialCartones.carton2 = ganadores[1];
+    historialCartones.carton3 = ganadores[2];
+    historialCartones.carton4 = ganadores[3];
+
+    let request;
+    if (window.XMLHttpRequest) {
+        //New browsers.
+        request = new XMLHttpRequest();
+    }
+    else if (window.ActiveXObject) {
+        //Old IE Browsers.
+        request = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    if (request != null) {
+        var url = "/Home/HistorialCartones";
+        request.open("POST", url, false);
+        request.setRequestHeader("Content-Type", "application/json");
+        request.onreadystatechange = function () {
+            if (request.readyState == 4 && request.status == 200) {
+                var response = JSON.parse(request.responseText);
+                if (response !== 'ok') {
+                    alert(response);
+                }
+            }
+        };
+        request.send(JSON.stringify(historialCartones));
+    }
 }
 
 function guardarNumero(numero) {

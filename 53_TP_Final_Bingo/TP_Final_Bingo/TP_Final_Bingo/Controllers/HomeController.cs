@@ -40,7 +40,22 @@ namespace TP_Final_Bingo.Controllers
                 return Json(respuesta);
             }            
         }
-        
+
+        [HttpPost]
+        public JsonResult HistorialCartones([FromBody] HistorialCartone historialCartones)
+        {
+            historialCartones.FechaHora = DateTime.Now;
+            var respuesta = _cartonService.GuardarCartones(historialCartones);
+            if (respuesta == "ok")
+            {
+                return Json("ok");
+            }
+            else
+            {
+                return Json(respuesta);
+            }
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
