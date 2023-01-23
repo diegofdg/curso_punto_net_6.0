@@ -1,6 +1,6 @@
 ﻿using TP_Final_Bingo.Context;
-using TP_Final_Bingo.Controllers;
 using TP_Final_Bingo.Models;
+using TP_Final_Bingo.Rules;
 
 namespace TP_Final_Bingo.Services
 {
@@ -8,8 +8,8 @@ namespace TP_Final_Bingo.Services
     {
         public List<int> CrearCartones()
         {
-            var logica = new CartonLogica();
-            var carton = logica.CrearCartones();
+            var cartonRule = new CartonRule();
+            var carton = cartonRule.CrearCartones();
             return carton;
         }
 

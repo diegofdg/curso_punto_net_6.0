@@ -1,9 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Configuration;
 using System.Diagnostics;
-using TP_Final_Bingo.Context;
 using TP_Final_Bingo.Models;
-using TP_Final_Bingo.Rules;
 using TP_Final_Bingo.Services;
 
 namespace TP_Final_Bingo.Controllers

@@ -19,12 +19,12 @@ async function lanzarBolilla() {
 
     revisarCartones(numero, cartones);
 
-    await guardarNumero(numero);
+    await guardarHistorialBolillero(numero);
 
     if (revisarGanadores()) {
         btn_lanzar_bolilla.removeEventListener("click", lanzarBolilla, true);
         btn_lanzar_bolilla.disabled = true;
-        guardarDatosEnServidor();
+        guardarHistorialCartones();
     };
 }
 
@@ -111,8 +111,7 @@ function guardarCarton(desde, hasta) {
     return carton;
 }
 
-function guardarDatosEnServidor() {
-    console.log("Enviando los datos al servidor");
+function guardarHistorialCartones() {
     let historialCartones = {};    
     historialCartones.carton1 = ganadores[0];
     historialCartones.carton2 = ganadores[1];
@@ -120,21 +119,23 @@ function guardarDatosEnServidor() {
     historialCartones.carton4 = ganadores[3];
 
     let request;
+
     if (window.XMLHttpRequest) {
-        //New browsers.
+        // New browsers.
         request = new XMLHttpRequest();
     }
     else if (window.ActiveXObject) {
-        //Old IE Browsers.
+        // Old IE Browsers.
         request = new ActiveXObject("Microsoft.XMLHTTP");
     }
+
     if (request != null) {
-        var url = "/Home/HistorialCartones";
+        let url = "/Home/HistorialCartones";
         request.open("POST", url, false);
         request.setRequestHeader("Content-Type", "application/json");
         request.onreadystatechange = function () {
             if (request.readyState == 4 && request.status == 200) {
-                var response = JSON.parse(request.responseText);
+                let response = JSON.parse(request.responseText);
                 if (response !== 'ok') {
                     alert(response);
                 }
@@ -144,27 +145,28 @@ function guardarDatosEnServidor() {
     }
 }
 
-function guardarNumero(numero) {
+function guardarHistorialBolillero(numero) {
     let historialBolillero = {};
     historialBolillero.Numero = numero;
 
     let request;
+
     if (window.XMLHttpRequest) {
-        //New browsers.
+        // New browsers.
         request = new XMLHttpRequest();
     }
     else if (window.ActiveXObject) {
-        //Old IE Browsers.
+        // Old IE Browsers.
         request = new ActiveXObject("Microsoft.XMLHTTP");
     }
+
     if (request != null) {
-        var url = "/Home/HistorialBolillero";
+        let url = "/Home/HistorialBolillero";
         request.open("POST", url, false);
         request.setRequestHeader("Content-Type", "application/json");
         request.onreadystatechange = function () {
             if (request.readyState == 4 && request.status == 200) {
-                var response = JSON.parse(request.responseText);
-                console.log(response);
+                let response = JSON.parse(request.responseText);
                 if (response !== 'ok') {
                     alert(response);
                 }                
