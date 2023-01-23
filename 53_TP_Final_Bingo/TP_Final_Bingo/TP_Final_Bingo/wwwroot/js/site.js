@@ -11,7 +11,7 @@ let cartones = [...carton1, ...carton2, ...carton3, ...carton4];
 let ganadores = [0, 0, 0, 0];
 let finDelJuego = false;
 
-span_carton_ganador.textContent = "";
+span_carton_ganador.textContent = "aún no hay ganadores.";
 btn_lanzar_bolilla.addEventListener("click", lanzarBolilla, true);
 
 async function lanzarBolilla() {
