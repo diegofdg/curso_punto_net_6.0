@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Http.Json;
 using TP_Final_Bingo.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -7,6 +8,12 @@ builder.Services.AddControllersWithViews();
 
 // Inyección de las dependencias
 builder.Services.AddScoped<ICartonService, CartonService>();
+
+// Servicio para leer json en el servidor
+builder.Services.Configure<JsonOptions>(options =>
+{
+    options.SerializerOptions.PropertyNameCaseInsensitive = true;
+});
 
 var app = builder.Build();
 

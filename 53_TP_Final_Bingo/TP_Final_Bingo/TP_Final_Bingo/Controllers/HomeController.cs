@@ -25,6 +25,13 @@ namespace TP_Final_Bingo.Controllers
             return View(carton);
         }
 
+        [HttpPost]
+        public JsonResult HistorialBolillero([FromBody] HistorialBolillero historialBolillero)
+        {
+            historialBolillero.FechaHora = DateTime.Now;
+            return Json(historialBolillero);
+        }
+        
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

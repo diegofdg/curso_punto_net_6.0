@@ -18,6 +18,8 @@ function lanzarBolilla() {
 
     revisarCartones(numero, cartones);
 
+    guardarNumero(numero);
+
     if (revisarGanadores()) {
         btn_lanzar_bolilla.removeEventListener("click", lanzarBolilla, true);
         btn_lanzar_bolilla.disabled = true;
@@ -105,4 +107,31 @@ function guardarCarton(desde, hasta) {
 
 function guardarDatosEnServidor() {
     console.log("Enviando los datos al servidor");
+}
+
+function guardarNumero(numero) {
+    let historialBolillero = {};
+    historialBolillero.Numero = numero;
+
+    let request;
+    if (window.XMLHttpRequest) {
+        //New browsers.
+        request = new XMLHttpRequest();
+    }
+    else if (window.ActiveXObject) {
+        //Old IE Browsers.
+        request = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    if (request != null) {
+        var url = "/Home/HistorialBolillero";
+        request.open("POST", url, false);
+        request.setRequestHeader("Content-Type", "application/json");
+        request.onreadystatechange = function () {
+            if (request.readyState == 4 && request.status == 200) {
+                var response = JSON.parse(request.responseText);
+                alert("Number: " + response.numero + ".\nCurrent Date and Time: " + response.fechaHora);
+            }
+        };
+        request.send(JSON.stringify(historialBolillero));
+    }
 }
